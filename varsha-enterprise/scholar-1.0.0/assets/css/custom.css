@@ -169,3 +169,59 @@ footer p { font-size: 0.9rem; }
   .main-banner .header-text p { font-size: 0.88rem; }
   .main-banner .buttons a { padding: 9px 14px; }
 }
+
+
+
+/* --- HEADER REPAIRS --- */
+
+/* General header cleanup */
+.header-area {
+  background: #fff; /* keep base white behind green bar */
+  position: relative;
+  z-index: 1000;
+}
+
+/* Fix logo text scaling */
+.header-area .logo h1 {
+  font-size: clamp(1rem, 2.5vw + 0.5rem, 1.6rem);
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Hide search bar on mobile */
+@media (max-width: 991.98px){
+  .search-input { display: none !important; }
+}
+
+/* Force nav links horizontal only on desktop */
+@media (max-width: 991.98px){
+  .main-nav .nav {
+    display: none; /* hide the full nav list */
+  }
+  .menu-trigger {
+    display: block !important; /* ensure hamburger menu shows */
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 22px;
+  }
+}
+
+/* Desktop nav restore */
+@media (min-width: 992px){
+  .menu-trigger { display: none !important; }
+  .main-nav .nav { display: flex !important; }
+}
+
+/* Sticky header spacing fix for banners */
+.header-sticky + .main-banner,
+.header-area + .main-banner {
+  margin-top: 80px; /* adjust based on actual header height */
+}
+
+/* Banner inner text spacing fix */
+.main-banner .header-text {
+  padding-top: 20px;
+}
+
