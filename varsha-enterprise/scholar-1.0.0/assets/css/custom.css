@@ -1,0 +1,171 @@
+/* =========================================================
+   Varsha Enterprises — custom overrides
+   Safe to load after all other CSS (Bootstrap, template CSS)
+   Focus: mobile readability, spacing, and overflow fixes
+   ========================================================= */
+
+/* --- Base & utilities ---------------------------------- */
+:root{
+  --ve-max-content: 1200px;
+}
+
+img, svg, video { max-width: 100%; height: auto; }
+
+/* prevent accidental horizontal scroll on small screens */
+html, body { overflow-x: hidden; }
+
+/* a gentle type scale that adapts with viewport */
+h1 { font-size: clamp(1.8rem, 4vw + 0.5rem, 3rem); }
+h2 { font-size: clamp(1.4rem, 3.2vw + 0.4rem, 2.25rem); }
+h3 { font-size: clamp(1.2rem, 2.6vw + 0.3rem, 1.6rem); }
+
+/* containers shouldn’t exceed a sensible width */
+.container { max-width: var(--ve-max-content); }
+
+/* --- Header fixes -------------------------------------- */
+.header-area {
+  z-index: 1000;
+}
+
+/* logo text was huge and caused overlap on mobile */
+.header-area .logo h1 {
+  font-size: clamp(1.2rem, 4vw + 0.2rem, 1.8rem);
+  line-height: 1.2;
+  margin: 0;
+  word-break: break-word;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* keep nav from pushing layout; hide overflowed bits */
+.main-nav { overflow: visible; }
+
+/* search input shouldn’t crowd header on small screens */
+.search-input { display: none; }
+
+@media (min-width: 992px){
+  .search-input { display: block; }
+}
+
+/* ensure content doesn’t start under the sticky header */
+.header-sticky + .main-banner,
+.header-area + .main-banner {
+  margin-top: 72px; /* tweak if your header height differs */
+}
+
+/* --- Hero / Owl banner --------------------------------- */
+.main-banner { position: relative; }
+.owl-banner .item {
+  /* reduce hero height a bit on phones so text fits comfortably */
+  min-height: 62vh;
+  display: flex;
+  align-items: center;
+}
+.main-banner .header-text {
+  max-width: 680px;
+}
+.main-banner .header-text .category {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: clamp(0.72rem, 2.6vw, 0.9rem);
+}
+.main-banner .header-text h2 {
+  font-size: clamp(1.25rem, 5.2vw, 2rem);
+  line-height: 1.3;
+  margin: 10px 0 8px;
+}
+.main-banner .header-text p {
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  margin-bottom: 16px;
+  opacity: 0.95;
+}
+.main-banner .buttons a {
+  font-size: clamp(0.85rem, 2.4vw, 0.95rem);
+  padding: 10px 18px;
+  border-radius: 999px;
+}
+
+/* make the play-button layout not wrap awkwardly */
+.icon-button i { margin-right: 8px; }
+
+/* --- Services cards ------------------------------------ */
+.service-item {
+  text-align: left;
+  border-radius: 18px;
+  padding: 22px;
+}
+.service-item .icon img {
+  width: 72px;
+  height: auto;
+}
+.service-item .main-content h4 {
+  font-size: clamp(1.05rem, 2.8vw, 1.25rem);
+  margin-top: 12px;
+}
+.service-item .main-content p {
+  font-size: 0.95rem;
+}
+
+/* tighten gaps on mobile to avoid “cramped” feel */
+@media (max-width: 991.98px){
+  .services.section .row > [class*="col-"] { margin-bottom: 20px; }
+}
+
+/* --- About / Accordion -------------------------------- */
+.about-us .section-heading h2 {
+  font-size: clamp(1.15rem, 3.8vw, 1.75rem);
+}
+.accordion-button {
+  font-size: clamp(0.95rem, 3.2vw, 1.05rem);
+  line-height: 1.3;
+}
+.accordion-body {
+  font-size: 0.95rem;
+}
+
+/* --- Courses / Products grid --------------------------- */
+.section.courses .section-heading h2 {
+  margin-bottom: 8px;
+}
+.event_filter a { padding: 8px 14px; border-radius: 999px; }
+.events_item .thumb .price h6 { font-size: 0.95rem; }
+.events_item .down-content .author { font-size: 0.9rem; }
+
+/* ensure three-column cards don’t overflow at small widths */
+@media (max-width: 991.98px){
+  .event_box .col-lg-4 { margin-bottom: 24px; }
+}
+
+/* --- Fun facts counters -------------------------------- */
+.fun-facts .counter .count-text { font-size: 0.95rem; }
+.fun-facts .timer { font-size: clamp(1.4rem, 5vw, 2rem); }
+
+/* --- Team ---------------------------------------------- */
+.team-member .category { font-size: 0.85rem; }
+.team-member h4 { font-size: 1.05rem; }
+
+/* --- Testimonials -------------------------------------- */
+.section.testimonials p { font-size: 0.98rem; }
+
+/* --- Events list --------------------------------------- */
+.section.events .item ul li h6 { font-size: 0.95rem; }
+.section.events .item ul li span { font-size: 0.85rem; }
+
+/* --- Contact ------------------------------------------- */
+.contact-us .section-heading h2 { font-size: clamp(1.2rem, 3.8vw, 1.8rem); }
+.contact-us .special-offer h4 { font-size: clamp(1rem, 3.2vw, 1.25rem); }
+#contact-form input, #contact-form textarea {
+  font-size: 0.95rem;
+}
+
+/* --- Footer -------------------------------------------- */
+footer p { font-size: 0.9rem; }
+
+/* --- Extra small phones (≤ 400px) ---------------------- */
+@media (max-width: 400px){
+  .header-area .logo h1 { letter-spacing: 0.5px; }
+  .main-banner .header-text h2 { font-size: 1.2rem; }
+  .main-banner .header-text p { font-size: 0.88rem; }
+  .main-banner .buttons a { padding: 9px 14px; }
+}
